@@ -45,7 +45,7 @@ int _getche()
 }
 int _kbhit()
 {
-    std::cout << "This port needs a fix, CTRL-C to quit\n";
+    std::cout << "CTRL-C to quit\n";
     return 0;
 }
 
