@@ -41,7 +41,7 @@ struct IObjectFactorySystem
 	virtual IObjectConstructor* GetConstructor( ConstructorId id ) const = 0;
 	virtual void				AddConstructors(IAUDynArray<IObjectConstructor*> &constructors) = 0;
 	virtual void				GetAll(IAUDynArray<IObjectConstructor*> &constructors) const = 0;
-	virtual IObject*			GetObject( ObjectId id ) const = 0;
+	virtual IObject*			GetTheObject( ObjectId id ) const = 0;
 
 	virtual void				AddListener(IObjectFactoryListener* pListener) = 0;
 	virtual void				RemoveListener(IObjectFactoryListener* pListener) = 0;

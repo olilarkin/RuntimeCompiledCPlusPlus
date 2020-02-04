@@ -86,7 +86,7 @@ ConsoleGame::~ConsoleGame()
         m_pRuntimeObjectSystem->GetObjectFactorySystem()->RemoveListener(this);
 
         // delete object via correct interface
-        IObject* pObj = m_pRuntimeObjectSystem->GetObjectFactorySystem()->GetObject( m_ObjectId );
+        IObject* pObj = m_pRuntimeObjectSystem->GetObjectFactorySystem()->GetTheObject( m_ObjectId );
         delete pObj;
     }
 
@@ -132,7 +132,7 @@ void ConsoleGame::OnConstructorsAdded()
 	// This could have resulted in a change of object pointer, so release old and get new one.
 	if( m_pUpdateable )
 	{
-		IObject* pObj = m_pRuntimeObjectSystem->GetObjectFactorySystem()->GetObject( m_ObjectId );
+		IObject* pObj = m_pRuntimeObjectSystem->GetObjectFactorySystem()->GetTheObject( m_ObjectId );
 		pObj->GetInterface( &m_pUpdateable );
 		if( 0 == m_pUpdateable )
 		{

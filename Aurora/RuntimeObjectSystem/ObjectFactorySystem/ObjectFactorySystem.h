@@ -48,7 +48,7 @@ public:
 	virtual IObjectConstructor* GetConstructor( ConstructorId id ) const;
 	virtual void AddConstructors(IAUDynArray<IObjectConstructor*> &constructors);
 	virtual void GetAll(IAUDynArray<IObjectConstructor*> &constructors) const;
-	virtual IObject* GetObject( ObjectId id ) const;
+	virtual IObject* GetTheObject( ObjectId id ) const;
 
 	virtual void AddListener(IObjectFactoryListener* pListener);
 	virtual void RemoveListener(IObjectFactoryListener* pListener);

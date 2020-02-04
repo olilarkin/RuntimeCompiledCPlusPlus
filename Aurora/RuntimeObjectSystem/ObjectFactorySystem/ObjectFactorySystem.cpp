@@ -385,7 +385,7 @@ void ObjectFactorySystem::GetAll(IAUDynArray<IObjectConstructor*> &constructors)
 	}
 }
 
-IObject* ObjectFactorySystem::GetObject( ObjectId id ) const
+IObject* ObjectFactorySystem::GetTheObject( ObjectId id ) const
 {
 	IObjectConstructor* pConstructor = ObjectFactorySystem::GetConstructor( id.m_ConstructorId );
 	if( pConstructor )
