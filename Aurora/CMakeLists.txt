@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
+cmake_policy(SET CMP0091 NEW)
 
 project( RuntimeCompiledCPlusPlus )
 #
@@ -21,11 +22,15 @@ include(cmake/ProjectFiles.cmake)
 # RuntimeCompiler
 #
 add_library(RuntimeCompiler ${BUILD_TYPE} ${RuntimeCompiler_SRCS})
+set_property(TARGET RuntimeCompiler PROPERTY
+  MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 #
 # RuntimeObjectSystem
 #
 add_library(RuntimeObjectSystem ${BUILD_TYPE} ${RuntimeObjectSystem_SRCS})
+set_property(TARGET RuntimeObjectSystem PROPERTY
+  MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 target_link_libraries(RuntimeObjectSystem RuntimeCompiler)
 if(UNIX)
 	target_link_libraries(RuntimeObjectSystem dl)
@@ -49,6 +54,8 @@ if(BUILD_EXAMPLES)
 	#
 
 	add_executable(ConsoleExample ${ConsoleExample_SRCS})
+	set_property(TARGET ConsoleExample PROPERTY
+  MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 	target_link_libraries(ConsoleExample RuntimeCompiler RuntimeObjectSystem)
 
 endif()
